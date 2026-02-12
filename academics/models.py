@@ -14,13 +14,13 @@ class Subject(models.Model):
     def __str__(self):
         return self.name
 
-class Assginment(models.Model):
+class Assignment(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     subject = models.ForeignKey(Subject ,on_delete= models.CASCADE)
 
     deadlines = models.DateField()
-    assginment_pdf= models.FileField(
-        upload_to='assginment/',
+    assignment_pdf= models.FileField(
+        upload_to='assignment/',
         null=True,
         blank=True
     )

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Subject, Assginment , Exam, Notes
+from .models import Subject, Assignment , Exam, Notes
 
 class SubjectSerializer(serializers.ModelSerializer):
     class Meta:
@@ -7,9 +7,9 @@ class SubjectSerializer(serializers.ModelSerializer):
         fields = '__all__'
         read_only_fields = ['user']
 
-class AssginmentSerializer(serializers.ModelSerializer):
+class AssignmentSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Assginment
+        model = Assignment
         fields = '__all__'
         read_only_fields = ['user']
 

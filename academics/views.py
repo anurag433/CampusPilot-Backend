@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
-from .serializers import SubjectSerializer ,AssginmentSerializer, ExamSerializer, NotesSerializer
-from .models import Subject, Assginment, Exam, Notes
+from .serializers import SubjectSerializer ,AssignmentSerializer, ExamSerializer, NotesSerializer
+from .models import Subject, Assignment, Exam, Notes
 
 class SubjectViewSet(viewsets.ModelViewSet):
     serializer_class = SubjectSerializer
@@ -14,12 +14,12 @@ class SubjectViewSet(viewsets.ModelViewSet):
         return serializer.save(user=self.request.user)
     
 
-class AssginmentViewSet(viewsets.ModelViewSet):
-    serializer_class = AssginmentSerializer 
+class AssignmentViewSet(viewsets.ModelViewSet):
+    serializer_class = AssignmentSerializer 
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Assginment.objects.filter(user=self.request.user)
+        return Assignment.objects.filter(user=self.request.user)
     
     def perform_create(self, serializer):
         return serializer.save(user=self.request.user)
